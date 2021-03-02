@@ -1,0 +1,26 @@
+
+function test1() {
+    const url = 'https://api.github.com/users/testnakov/repos';
+    const ulEl = document.getElementById('repos');
+  fetch(url)
+      .then(response => response.json())
+      .then(data => {
+          data
+              .forEach(g => {
+                  let li = document.createElement('li');
+                  li.textContent= `${g.full_name}/${g.url}`;
+                  ulEl.appendChild(li)
+              })
+      })
+
+
+
+}
+
+-----------------------------------
+// const response = await fetch(url);
+    // const data = await response.json();
+    // console.log(data);
+    fetch(url)
+        .then(response => response.json())
+        .then(data => console.log(data))
